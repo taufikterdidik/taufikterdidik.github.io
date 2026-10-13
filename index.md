@@ -8,7 +8,7 @@
 <style>
   .jumbo {
     margin: 26px 0 10px;
-    padding: 30px 32px;
+    padding: 24px 26px;
     border-radius: 14px;
     background:
       radial-gradient(120% 160% at 100% 0%, rgba(94,124,255,.35) 0%, rgba(94,124,255,0) 55%),
@@ -29,18 +29,29 @@
     padding: 4px 12px;
   }
   .jumbo h2 {
-    margin: 14px 0 8px;
-    font-size: 25px;
+    margin: 13px 0 8px;
+    font-size: 21px;
     line-height: 1.25;
     color: #f2f6fc;
     border: 0;
   }
   .jumbo p {
-    margin: 0 0 18px;
-    font-size: 14.5px;
-    line-height: 1.6;
+    margin: 0 0 16px;
+    font-size: 13.5px;
+    line-height: 1.55;
     color: #a9bacd;
   }
+  .jumbo p.pills { margin: 0 0 16px; }
+  .jumbo .prov {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 650;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin: 0 6px 6px 0;
+  }
+  .jumbo .prov.cc { background: #0f2740; color: #7fb0ff; border: 1px solid #24507e; }
+  .jumbo .prov.ocg { background: #241542; color: #bc8cff; border: 1px solid #4b2c7d; }
   .jumbo .cta {
     display: inline-block;
     font-size: 14.5px;
@@ -63,12 +74,11 @@
 
 <div class="jumbo">
   <span class="tag">Benchmark</span>
-  <h2>Benchmark model LLM di gateway OmniRoute</h2>
-  <p>
-    Hasil pengukuran <strong>125 model</strong> pada dua prefix penyedia &mdash; <strong>command-code</strong>
-    (87 model) dan <strong>opencode-go</strong> (38 model): throughput, latensi dua tahap, dan status
-    ketersediaan tiap rute.
+  <h2>Benchmark model LLM per penyedia</h2>
+  <p>125 model diukur: throughput, latensi dua tahap, dan status ketersediaan tiap rute.</p>
+  <p class="pills">
+    <span class="prov cc">commandcode &middot; GOAT $10</span>
+    <span class="prov ocg">opencode &middot; GO PLAN $10</span>
   </p>
   <a class="cta" href="/benchmarks/">Lihat hasil benchmark &rarr;</a>
-  <span class="meta">Diukur 9 Oktober 2026 &middot; streaming, median 3 run &middot; 58 rute command-code terukur</span>
 </div>

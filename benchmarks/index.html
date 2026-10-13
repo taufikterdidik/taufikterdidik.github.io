@@ -3,40 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Benchmark Model LLM &mdash; OmniRoute gateway</title>
+<title>Benchmark Model LLM per Penyedia &mdash; commandcode &amp; opencode</title>
 <style>
   :root { color-scheme: dark; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0b0f16;
-    color: #e6edf3;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.55;
-  }
+  body { background: #0b0f16; color: #e6edf3;
+         font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.55; }
   .wrap { max-width: 1340px; margin: 0 auto; padding: 40px 24px 70px; }
   .crumb { font-size: 13px; margin-bottom: 20px; }
   .crumb a { color: #7fb0ff; text-decoration: none; }
   .crumb a:hover { text-decoration: underline; }
   .crumb span { color: #5c6b7d; }
   h1 { font-size: 30px; letter-spacing: -.3px; line-height: 1.22; }
-  h1 .cc { color: #58a6ff; }
-  h1 .ocg { color: #bc8cff; }
-  .sub { color: #8b98a9; font-size: 14px; margin-top: 8px; }
+  .sub { color: #8b98a9; font-size: 14px; margin-top: 10px; }
+  .pill { display: inline-block; font-size: 12px; padding: 3px 12px; border-radius: 999px;
+          font-weight: 650; letter-spacing: .3px; margin-right: 8px; }
+  .pill.cc { background: #0f2740; color: #7fb0ff; border: 1px solid #24507e; }
+  .pill.ocg { background: #241542; color: #bc8cff; border: 1px solid #4b2c7d; }
   .rule { height: 3px; border-radius: 3px; margin: 18px 0 8px;
           background: linear-gradient(90deg, #58a6ff, #bc8cff 45%, #3fb950); }
-  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
           gap: 14px; margin: 26px 0 8px; }
   .kpi { background: #141b26; border: 1px solid #22303f; border-radius: 12px; padding: 15px 16px; }
   .kpi .v { font-size: 30px; font-weight: 750; line-height: 1; }
   .kpi .l { font-size: 12.5px; color: #93a1b1; margin-top: 8px; line-height: 1.4; }
-  .c { color: #58a6ff; } .g { color: #3fb950; } .a { color: #d29922; } .p { color: #bc8cff; }
+  .c { color: #58a6ff; } .g { color: #3fb950; } .a { color: #d29922; } .r { color: #f85149; }
   figure { margin: 34px 0 0; }
   figure h2 { font-size: 18px; font-weight: 650; color: #dbe6f2; margin-bottom: 4px; }
+  figure h2 .prov { font-size: 12px; font-weight: 600; }
   figure p { font-size: 13.5px; color: #8b98a9; margin-bottom: 12px; }
-  figure img {
-    display: block; width: 100%; height: auto;
-    border: 1px solid #22303f; border-radius: 12px; background: #0d131c;
-  }
+  figure img { display: block; width: 100%; height: auto;
+               border: 1px solid #22303f; border-radius: 12px; background: #0d131c; }
   a.shot { display: block; border-radius: 12px; }
   a.shot:hover img { border-color: #3d5a7d; }
   .note { margin-top: 38px; background: #141b26; border: 1px solid #22303f;
@@ -53,52 +50,61 @@
 
   <p class="crumb"><a href="/">&larr; Beranda</a> <span>/ benchmarks</span></p>
 
-  <h1>Benchmark Model LLM &mdash; <span class="cc">command-code</span> + <span class="ocg">opencode-go</span></h1>
-  <p class="sub">Gateway OmniRoute &middot; 9 Oktober 2026 &middot; streaming, median 3 run,
-     <code>max_tokens 2000</code>, <code>reasoning_effort=low</code></p>
+  <h1>Benchmark Model LLM per Penyedia</h1>
+  <p class="sub">
+    <span class="pill cc">commandcode &middot; paket GOAT $10</span>
+    <span class="pill ocg">opencode &middot; paket GO PLAN $10</span>
+  </p>
   <div class="rule"></div>
 
   <div class="kpis">
-    <div class="kpi"><div class="v c">125</div><div class="l">model di katalog hidup<br>87 command-code + 38 opencode-go</div></div>
-    <div class="kpi"><div class="v g">58</div><div class="l">rute command-code<br>benar-benar terukur</div></div>
-    <div class="kpi"><div class="v a">618</div><div class="l">TPS puncak<br>deepseek-v4.1-flash-fast</div></div>
-    <div class="kpi"><div class="v p">29</div><div class="l">rute command-code<br>tidak bisa dipanggil</div></div>
+    <div class="kpi"><div class="v c">125</div><div class="l">model diuji dari dua penyedia<br>87 commandcode + 38 opencode</div></div>
+    <div class="kpi"><div class="v g">70</div><div class="l">rute berhasil diukur<br>58 commandcode + 12 opencode</div></div>
+    <div class="kpi"><div class="v a">618</div><div class="l">TPS tertinggi<br>deepseek-v4.1-flash-fast</div></div>
+    <div class="kpi"><div class="v r">30</div><div class="l">rute tidak dapat diukur<br>29 commandcode + 1 opencode</div></div>
   </div>
 
   <figure>
     <h2>1. Ringkasan &amp; ketersediaan</h2>
-    <p>Sebaran status 87 rute command-code, lima rute tercepat, dan catatan metode.</p>
-    <a class="shot" href="01-ringkasan.jpg"><img src="01-ringkasan.png" alt="Infografis ringkasan benchmark: 125 model, 58 terukur, ketersediaan command-code"></a>
+    <p>Sebaran status 87 rute commandcode dan 38 model opencode, delapan rute tercepat dari masing-masing
+       penyedia, serta metode pengukuran.</p>
+    <a class="shot" href="01-ringkasan.jpg"><img src="01-ringkasan.png" alt="Infografis ringkasan: 125 model diuji, 70 rute terukur, ketersediaan per penyedia"></a>
   </figure>
 
   <figure>
-    <h2>2. Throughput</h2>
-    <p>Stream TPS (fase konten) dan e2e TPS (termasuk reasoning) untuk 58 rute yang terukur.</p>
-    <a class="shot" href="02-throughput.jpg"><img src="02-throughput.png" alt="Grafik batang throughput 58 rute command-code"></a>
+    <h2>2. Throughput <span class="prov c">commandcode</span></h2>
+    <p>58 model commandcode: TPS fase konten dan e2e TPS (termasuk fase reasoning), median 3 run,
+       9 Oktober 2026.</p>
+    <a class="shot" href="02-commandcode-throughput.jpg"><img src="02-commandcode-throughput.png" alt="Grafik batang throughput 58 model commandcode"></a>
   </figure>
 
   <figure>
-    <h2>3. Latensi &mdash; dua tahap TTFT</h2>
-    <p>Token pertama apa pun (reasoning mulai) dibandingkan token terlihat pertama, yaitu yang ditunggu pemanggil.</p>
-    <a class="shot" href="03-latensi.jpg"><img src="03-latensi.png" alt="Grafik latensi dua tahap TTFT untuk 58 rute command-code"></a>
+    <h2>3. Latensi <span class="prov c">commandcode</span></h2>
+    <p>Dua tahap latensi tiap model: token pertama apa pun (reasoning mulai) dibanding token terlihat
+       pertama, yaitu yang ditunggu pemanggil.</p>
+    <a class="shot" href="03-commandcode-latensi.jpg"><img src="03-commandcode-latensi.png" alt="Grafik latensi dua tahap untuk 58 model commandcode"></a>
   </figure>
 
   <figure>
-    <h2>4. Rekomendasi per peran</h2>
-    <p>Skor rujukan publik (Artificial Analysis) dan pemetaan model ke profil agen.</p>
-    <a class="shot" href="04-rekomendasi.jpg"><img src="04-rekomendasi.png" alt="Tabel rekomendasi model per profil agen Hermes"></a>
+    <h2>4. Throughput &amp; latensi <span class="prov" style="color:#bc8cff">opencode</span></h2>
+    <p>12 model opencode yang terukur, beserta daftar rute yang tidak dapat diukur.
+       Pengukuran 29 September 2026.</p>
+    <a class="shot" href="04-opencode.jpg"><img src="04-opencode.png" alt="Grafik throughput dan latensi 12 model opencode"></a>
   </figure>
 
   <div class="note">
     <h2>Metode singkat</h2>
     <ul>
-      <li>Setiap rute diuji <strong>3 kali</strong>; angka yang dilaporkan adalah median.</li>
-      <li>Dua TTFT diukur terpisah: token pertama <em>apa pun</em> dan token <em>terlihat</em> pertama.</li>
-      <li>TPS stream = token keluaran dibagi durasi fase konten; e2e TPS memasukkan fase reasoning.</li>
-      <li>29 rute tidak dapat dipanggil: 18 terkunci paket (403 <code>MODEL_NOT_IN_PLAN</code>),
-          10 karena bentuk protokol / routing upstream, 1 karena slug usang.</li>
-      <li>Seluruh 38 rute opencode-go tidak dapat diukur pada tanggal tersebut karena kuota egress
-          penyedia habis (HTTP 429).</li>
+      <li>Streaming saja; setiap rute dijalankan <strong>3 kali</strong>, angka yang dilaporkan adalah median.</li>
+      <li>Dua latensi diukur terpisah: token pertama <em>apa pun</em> (reasoning mulai) dan token
+          <em>terlihat</em> pertama &mdash; yang kedua itulah yang ditunggu pemanggil.</li>
+      <li>TPS fase konten = token keluaran dibagi durasi fase konten; e2e TPS memasukkan fase reasoning.</li>
+      <li><code>max_tokens 2000</code>; effort terendah yang diterima tiap rute (<code>low</code> untuk
+          commandcode, <code>none</code>/<code>low</code> untuk opencode).</li>
+      <li>29 rute commandcode tidak dapat dipanggil: 18 menuntut paket lebih tinggi, 10 ditolak sisi
+          protokol/routing, 1 slug usang.</li>
+      <li>Pengukuran commandcode dilakukan 9 Oktober 2026, opencode 29 September 2026. Keduanya tidak dapat
+          dibandingkan langsung karena tanggal, effort, dan beban penyedia berbeda.</li>
     </ul>
   </div>
 
